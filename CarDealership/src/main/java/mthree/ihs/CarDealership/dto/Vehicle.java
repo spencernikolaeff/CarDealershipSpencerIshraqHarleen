@@ -9,11 +9,6 @@ package mthree.ihs.CarDealership.dto;
  * @author Spencer Nikolaeff
  */
 
-enum Type {
-    NEW,
-    USED
-}
-
 enum Body {
     COUPE,
     SEDAN,
@@ -43,7 +38,7 @@ public class Vehicle {
     
     private String make;
     private String model;
-    private Type type;
+    private boolean type;
     private Body body;
     private int year;
     private Transmission transmission;
@@ -75,11 +70,11 @@ public class Vehicle {
         this.model = model;
     }
     
-    public Type getType() {
+    public boolean getType() {
         return this.type;
     }
     
-    public void setType(Type type) {
+    public void setType(boolean type) {
         this.type = type;
     }
     
