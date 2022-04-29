@@ -24,6 +24,22 @@ CREATE TABLE Vehicle(
     PRIMARY KEY(vehicleId)
 );
 
+CREATE TABLE Special(
+	specialId INT NOT NULL,
+    specialDescription VARCHAR(200),
+    discountValue DECIMAL(7,2) NOT NULL,
+    isPercent BOOL NOT NULL,
+    PRIMARY KEY(specialId)
+);
+
+CREATE TABLE VehicleSpecial(
+    specialId INT NOT NULL,
+    vehicleId INT NOT NULL,
+    PRIMARY KEY(specialId, vehicleId),
+    FOREIGN KEY (specialId) REFERENCES Special(specialId),
+    FOREIGN KEY (vehicleId) REFERENCES Vehicle(vehicleId)
+);
+
 CREATE TABLE UserAccount (
 	userId INT NOT NULL,
     firstName TEXT(25) NOT NULL,
