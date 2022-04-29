@@ -52,4 +52,15 @@ public interface VehicleDao {
     //get vehicle details
     String getVehicleDetails(int id);
     
+    //get vehicle inventory
+    //gets list of new/used vehicles 
+    //maybe use helper method for the counts
+    List<Vehicle> getVehicleInventory(boolean isUsed);
+    
+    //get vehicle inventory HELPER
+    //gets the number of vehicles using the vehicle id
+    //get the make, model, and year of the vehicle with that id
+    //then see how many vehicles we have with those specifications
+    int getVehicleInventoryCount(int id);
+    
 }
