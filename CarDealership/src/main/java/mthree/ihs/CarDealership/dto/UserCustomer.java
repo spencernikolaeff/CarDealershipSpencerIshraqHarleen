@@ -6,7 +6,7 @@ package mthree.ihs.CarDealership.dto;
 
 /**
  *
- * @author 17202
+ * @author Spencer
  */
 public class UserCustomer extends User {
     //attributes

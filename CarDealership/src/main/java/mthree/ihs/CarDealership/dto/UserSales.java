@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 /**
  *
- * @author 17202
+ * @author Spencer
  */
 public class UserSales extends User {
     
