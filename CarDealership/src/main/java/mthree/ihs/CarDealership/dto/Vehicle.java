@@ -11,25 +11,25 @@ import java.math.BigDecimal;
  * @author Spencer Nikolaeff
  */
 
-enum Body {
-    COUPE,
-    SEDAN,
-    VAN,
-    TRUCK,
-    MOTORCYCLE
-}
-
-enum Color {
-    BLACK,
-    WHITE,
-    RED,
-    BLUE,
-    GRAY,
-    GREEN,
-    YELLOW,
-    PURPLE,
-    ORANGE
-}
+//enum Body {
+//    COUPE,
+//    SEDAN,
+//    VAN,
+//    TRUCK,
+//    MOTORCYCLE
+//}
+//
+//enum Color {
+//    BLACK,
+//    WHITE,
+//    RED,
+//    BLUE,
+//    GRAY,
+//    GREEN,
+//    YELLOW,
+//    PURPLE,
+//    ORANGE
+//}
 
 public class Vehicle {
     
@@ -45,7 +45,7 @@ public class Vehicle {
     private String interiorColor;
     private int mileage;
     private String vin;
-    private String msrp;
+    private BigDecimal msrp;
     private BigDecimal price;
     private String vehicleDescription;
     private String iconURL;
@@ -143,11 +143,11 @@ public class Vehicle {
         this.vin = vin;
     }
 
-    public String getMsrp() {
+    public BigDecimal getMsrp() {
         return msrp;
     }
 
-    public void setMsrp(String msrp) {
+    public void setMsrp(BigDecimal msrp) {
         this.msrp = msrp;
     }
 
