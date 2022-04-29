@@ -54,6 +54,46 @@ public class Vehicle {
         
     }
     
+    public Double getPrice() {
+        return this.price;
+    }
+    
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+    
+    public String getDescription() {
+        return this.description;
+    }
+    
+    public void setDescription(String desc) {
+        this.description = desc;
+    }
+    
+    public String getMsrp() {
+        return this.msrp;
+    }
+    
+    public void setMsrp(String msrp) {
+        this.msrp = msrp;
+    }
+    
+    public String getVin() {
+        return this.vin;
+    }
+    
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+    
+    public int getMiles() {
+        return this.miles;
+    }
+    
+    public void setMiles(int miles) {
+        this.miles = miles;
+    }
+    
     public String getMake() {
         return this.make;
     }
@@ -101,5 +141,22 @@ public class Vehicle {
     public void setTransmission(Transmission trans) {
         this.transmission = trans;
     }
+    
+    public Color getInterior() {
+        return this.interior;
+    }
+    
+    public void setInterior(Color color) {
+        this.interior = color;
+    }
+    
+    public Color getExterior() {
+        return this.exterior;
+    }
+    
+    public void setExterior(Color color) {
+        this.exterior = color;
+    }
+    
     
 }
