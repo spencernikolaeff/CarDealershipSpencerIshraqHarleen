@@ -20,7 +20,7 @@ public class SalesLog {
     private int vehicleId;  //Returning IDs from the database 
         
     public SalesLog() {
-       
+        
     }
 
     public LocalDate getDateSold() {
