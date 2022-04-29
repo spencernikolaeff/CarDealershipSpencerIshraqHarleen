@@ -12,6 +12,8 @@ import java.math.BigDecimal;
  */
 public class UserSales extends User {
     
+    private int u_salesId;
+    
     //private attributes
     private BigDecimal totalSales;
     private int totalVehiclesSold;
@@ -21,6 +23,16 @@ public class UserSales extends User {
         
     }
 
+    public int getU_salesId() {
+        return u_salesId;
+    }
+
+    public void setU_salesId(int u_salesId) {
+        this.u_salesId = u_salesId;
+    }
+
+    
+    
     public BigDecimal getTotalSales() {
         return totalSales;
     }

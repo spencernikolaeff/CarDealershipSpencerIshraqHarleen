@@ -9,6 +9,9 @@ package mthree.ihs.CarDealership.dto;
  * @author Spencer
  */
 public class UserCustomer extends User {
+    
+    private int customerId;
+    
     //attributes
     private String phoneNumber;
     private String street1;
@@ -20,6 +23,16 @@ public class UserCustomer extends User {
     //empty constructor
     public UserCustomer() {
     }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+    
+    
 
     //getter and setters
     public String getPhoneNumber() {
