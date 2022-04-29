@@ -13,7 +13,7 @@ import mthree.ihs.CarDealership.dto.UserCustomer;
  */
 public interface UserCustomerDao {
 
-    String getUserCustomerEmailById(int id);
+    //String getUserCustomerEmailById(int id);
 
     UserCustomer getUserCustomerById(int id);
 
@@ -21,11 +21,11 @@ public interface UserCustomerDao {
 
     List<UserCustomer> getAllUserCustomer();
 
-    UserCustomer editUserCustomer(UserCustomer user);
+    void editUserCustomer(UserCustomer user);
 
-    String getUserCustomerAddress(UserCustomer user);
+    //String getUserCustomerAddress(UserCustomer user);
     
-    String getUserCustomerPhoneNumber(UserCustomer user);
+    //String getUserCustomerPhoneNumber(UserCustomer user);
     
     void deleteUserCustomerById(int id);
 

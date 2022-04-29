@@ -13,12 +13,10 @@ import mthree.ihs.CarDealership.dto.User;
  */
 public interface UserDao {
     
-    String getUserEmailById(int id);
     User getUserById(int id);
     User addUser(User user);
     List<User> getAllUsers();
-    User editUser(User user);
-    User getUserByUsername(String us);
+    void editUser(User user);
     
     void deleteUserById(int id);
     

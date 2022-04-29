@@ -14,21 +14,13 @@ import mthree.ihs.CarDealership.dto.UserSales;
  */
 public interface UserSalesDao {
 
-    String getUserSalesEmailById(int id);
-
     UserSales getUserSalesById(int id);
 
     UserSales addUserSales(UserSales user);
 
     List<UserSales> getAllUserSales();
 
-    UserSales editUserSales(UserSales user);
-    
-    BigDecimal getTotalSales(UserSales user);
-    
-    int getTotalVehiclesSold(UserSales user);
-
-  
+    void editUserSales(UserSales user);
     
     void deleteUserSalesById(int id);
 
