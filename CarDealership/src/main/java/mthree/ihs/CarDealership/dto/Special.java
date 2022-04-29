@@ -12,11 +12,30 @@ import java.math.BigDecimal;
  * @author khani
  */
 public class Special {
+    
     private int specialId;
+    private String title;
     private String Description;
     private BigDecimal discountValue;
     private boolean isPercent;
+    private String icon_url;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    
+    public String getIcon_url() {
+        return icon_url;
+    }
+
+    public void setIcon_url(String icon_url) {
+        this.icon_url = icon_url;
+    }
+    
     public void setSpecialId(int specialId) {
         this.specialId = specialId;
     }

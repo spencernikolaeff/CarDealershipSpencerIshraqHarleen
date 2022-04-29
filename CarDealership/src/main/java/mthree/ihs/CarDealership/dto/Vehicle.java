@@ -33,6 +33,8 @@ enum Color {
 
 public class Vehicle {
     
+    private int VehicleId;
+    
     private String make;
     private String model;
     private boolean isUsed;
@@ -49,9 +51,16 @@ public class Vehicle {
     private String iconURL;
     private boolean inStock;
     
-    
     public Vehicle() {
         
+    }
+
+    public int getVehicleId() {
+        return VehicleId;
+    }
+
+    public void setVehicleId(int VehicleId) {
+        this.VehicleId = VehicleId;
     }
 
     public String getMake() {
