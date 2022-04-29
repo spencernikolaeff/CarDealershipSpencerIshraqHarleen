@@ -12,10 +12,10 @@ import java.math.BigDecimal;
  * @author khani
  */
 public class Special {
-    private int specialId = 0;
+    private int specialId;
     private String Description;
     private BigDecimal discountValue;
-    private boolean isPercent = false;
+    private boolean isPercent;
 
     public void setSpecialId(int specialId) {
         this.specialId = specialId;
