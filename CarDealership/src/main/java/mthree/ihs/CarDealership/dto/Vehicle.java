@@ -19,11 +19,6 @@ enum Body {
     MOTORCYCLE
 }
 
-enum Transmission {
-    AUTOMATIC,
-    MANUAL
-}
-
 enum Color {
     BLACK,
     WHITE,
