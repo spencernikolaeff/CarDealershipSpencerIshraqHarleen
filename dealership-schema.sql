@@ -24,6 +24,17 @@ CREATE TABLE Vehicle(
     PRIMARY KEY(vehicleId)
 );
 
+CREATE TABLE Contact (
+	contactId INT NOT NULL,
+    contactName VARCHAR(50) NOT NULL,
+    email VARCHAR(65),
+    phoneNumber VARCHAR(12),
+    message VARCHAR (300) NOT NULL,
+    vehicleId INT NOT NULL,
+    FOREIGN KEY (vehicleId) REFERENCES Vehicle(vehicleId),
+    PRIMARY KEY(contactId)
+);
+
 CREATE TABLE Special(
 	specialId INT NOT NULL,
     specialDescription VARCHAR(200),
