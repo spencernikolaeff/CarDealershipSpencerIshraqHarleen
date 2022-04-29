@@ -4,6 +4,8 @@
  */
 package mthree.ihs.CarDealership.dto;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author Spencer Nikolaeff
@@ -38,125 +40,143 @@ public class Vehicle {
     
     private String make;
     private String model;
-    private boolean type;
-    private Body body;
+    private boolean isUsed;
+    private String body;
     private int year;
-    private Transmission transmission;
-    private Color exterior;
-    private Color interior;
-    private int miles;
+    private boolean isManual;
+    private String exteriorColor;
+    private String interiorColor;
+    private int mileage;
     private String vin;
     private String msrp;
-    private double price;
-    private String description;
+    private BigDecimal price;
+    private String vehicleDescription;
+    private String iconURL;
+    private boolean inStock;
+    
     
     public Vehicle() {
         
     }
-    
-    public Double getPrice() {
-        return this.price;
-    }
-    
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-    
-    public String getDescription() {
-        return this.description;
-    }
-    
-    public void setDescription(String desc) {
-        this.description = desc;
-    }
-    
-    public String getMsrp() {
-        return this.msrp;
-    }
-    
-    public void setMsrp(String msrp) {
-        this.msrp = msrp;
-    }
-    
-    public String getVin() {
-        return this.vin;
-    }
-    
-    public void setVin(String vin) {
-        this.vin = vin;
-    }
-    
-    public int getMiles() {
-        return this.miles;
-    }
-    
-    public void setMiles(int miles) {
-        this.miles = miles;
-    }
-    
+
     public String getMake() {
-        return this.make;
+        return make;
     }
-    
+
     public void setMake(String make) {
         this.make = make;
     }
-    
+
     public String getModel() {
-        return this.model;
+        return model;
     }
-    
+
     public void setModel(String model) {
         this.model = model;
     }
-    
-    public boolean getType() {
-        return this.type;
+
+    public boolean isIsUsed() {
+        return isUsed;
     }
-    
-    public void setType(boolean type) {
-        this.type = type;
+
+    public void setIsUsed(boolean isUsed) {
+        this.isUsed = isUsed;
     }
-    
-    public Body getBody() {
-        return this.body;
+
+    public String getBody() {
+        return body;
     }
-    
-    public void setBody(Body body) {
+
+    public void setBody(String body) {
         this.body = body;
     }
-    
+
     public int getYear() {
-        return this.year;
+        return year;
     }
-    
+
     public void setYear(int year) {
         this.year = year;
     }
-    
-    public Transmission getTransmission() {
-        return this.transmission;
+
+    public boolean isIsManual() {
+        return isManual;
     }
-    
-    public void setTransmission(Transmission trans) {
-        this.transmission = trans;
+
+    public void setIsManual(boolean isManual) {
+        this.isManual = isManual;
     }
-    
-    public Color getInterior() {
-        return this.interior;
+
+    public String getExteriorColor() {
+        return exteriorColor;
     }
-    
-    public void setInterior(Color color) {
-        this.interior = color;
+
+    public void setExteriorColor(String exteriorColor) {
+        this.exteriorColor = exteriorColor;
     }
-    
-    public Color getExterior() {
-        return this.exterior;
+
+    public String getInteriorColor() {
+        return interiorColor;
     }
-    
-    public void setExterior(Color color) {
-        this.exterior = color;
+
+    public void setInteriorColor(String interiorColor) {
+        this.interiorColor = interiorColor;
     }
-    
+
+    public int getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public String getMsrp() {
+        return msrp;
+    }
+
+    public void setMsrp(String msrp) {
+        this.msrp = msrp;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public String getVehicleDescription() {
+        return vehicleDescription;
+    }
+
+    public void setVehicleDescription(String vehicleDescription) {
+        this.vehicleDescription = vehicleDescription;
+    }
+
+    public String getIconURL() {
+        return iconURL;
+    }
+
+    public void setIconURL(String iconURL) {
+        this.iconURL = iconURL;
+    }
+
+    public boolean isInStock() {
+        return inStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
+    }
     
 }
