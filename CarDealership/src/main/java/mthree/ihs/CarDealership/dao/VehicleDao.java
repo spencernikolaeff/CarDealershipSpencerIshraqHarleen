@@ -41,10 +41,10 @@ public interface VehicleDao {
     //ref 2: model
     //ref 3: year
     //isUsed is whether we're searching used / new vehicles since they're seperate pages
-    Vehicle searchVehicle(String input, int ref, boolean isUsed);
+    Vehicle searchVehicle(String input, boolean isUsed);
 
     //search + price or year
-    Vehicle searchVehicle(String input, int ref, BigDecimal priceMin, BigDecimal priceMax, int yearMin, int yearMax, boolean isUsed);
+    Vehicle searchVehicle(String input, BigDecimal priceMin, BigDecimal priceMax, int yearMin, int yearMax, boolean isUsed);
     
     //featured vehicles
     List<Vehicle> findFeaturedVehicles();
