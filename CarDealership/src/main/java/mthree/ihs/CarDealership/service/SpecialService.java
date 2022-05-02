@@ -6,9 +6,8 @@ package mthree.ihs.CarDealership.service;
 
 /**
  *
-
- * @author harle
-
-public class UserService {
+ * @author 17202
+ */
+public class SpecialService {
     
 }
