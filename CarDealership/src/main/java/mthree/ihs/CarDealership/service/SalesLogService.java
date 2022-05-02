@@ -6,7 +6,7 @@ package mthree.ihs.CarDealership.service;
 
 /**
  *
- * @author 17202
+ * @author SPENCER
  */
 public class SalesLogService {
     
