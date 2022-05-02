@@ -4,7 +4,6 @@
  */
 package mthree.ihs.CarDealership.dao;
 
-import java.math.BigDecimal;
 import java.util.List;
 import mthree.ihs.CarDealership.dto.UserSales;
 
@@ -23,5 +22,5 @@ public interface UserSalesDao {
     void editUserSales(UserSales user);
     
     void deleteUserSalesById(int id);
-
+    
 }
