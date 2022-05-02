@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -7,14 +7,31 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <th:block th:include="fragments/navBasic.html"> </th:block>
         
         <title>Dealership</title>
     </head>
     
     
     <body>
+        <nav class = "navbar navbar-inverse">
+            <form class ="form-inline" action="#" th:action="@{/home}" method="GET">
+                <button class="btn" type="submit">Home</button>
+            </form>
+            <form class ="form-inline" action="#" th:action="@{/inventory/new}" method="GET">
+                <button class="btn" type="submit">New Inventory</button>
+            </form>
+            <form class ="form-inline" action="#" th:action="@{/inventory/used}" method="GET">
+                <button class="btn" type="submit">Used Inventory</button>
+            </form> 
+            <form class ="form-inline" action="#" th:action="@{/specials}" method="GET">
+                <button class="btn" type="submit">Specials</button>
+            </form>
+            <form class ="form-inline" action="#" th:action="@{/contact}" method="GET">
+                <button class="btn" type="submit">Contact</button>
+            </form>
+        </nav>
         
+        <hr style="height:2px; width:100%; border-width:0; background-color:black">
         
         <!-- Main Body of Page -->
         <div class="container">
