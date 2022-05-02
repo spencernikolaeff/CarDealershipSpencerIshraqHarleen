@@ -13,6 +13,17 @@ import org.springframework.stereotype.Component;
 /**
  *
  * @author SPENCER
+ * LINE  -34-  CONSTRUCTOR
+ * LINE  -39-  GET BY ID
+ * LINE  -44-  GET ALL 
+ * LINE  -49-  GET ALL IN STOCK
+ * LINE  -55-  ADD
+ * LINE  -78-  EDIT
+ * LINE  -101- DELETE
+ * LINE  -120- SEARCH
+ * LINE  -174- FEATURED
+ * LINE  -186- DESCRIPTION
+ * LINE  -191- COUNT
  */
 @Component
 public class VehicleService {
@@ -130,13 +141,13 @@ public class VehicleService {
         
         //for years
         int year1;
-        if(inputs[2] == "") {
+        if(inputs[2].equals("")) {
             year1 = -1;
         } else {
             year1 = Integer.parseInt(inputs[2]);
         }
         int year2;
-        if(inputs[3] == "") {
+        if(inputs[3].equals("")) {
             year2 = -1;
         } else {
             year2 = Integer.parseInt(inputs[3]);
@@ -144,13 +155,13 @@ public class VehicleService {
         
         //for prices
         BigDecimal price1;
-        if(inputs[4] == "") {
+        if(inputs[4].equals("")) {
             price1 = new BigDecimal(-1);
         } else {
             price1 = new BigDecimal(inputs[4]);
         }
         BigDecimal price2;
-        if(inputs[5] == "") {
+        if(inputs[5].equals("")) {
             price2 = new BigDecimal(-1);
         } else {
             price2 = new BigDecimal(inputs[5]);
@@ -159,6 +170,27 @@ public class VehicleService {
         return dao.searchVehicle(inputs[0], price1, price2, year1, year2, isUsed);
     }
     
+    //get featured vehicles
+    public List<Vehicle> findFeatured() {
+        List<Vehicle> ret = dao.findFeaturedVehicles();
+        if(ret.size() == 0) { //check for 0 featured vehicles
+            return null;
+        } else if(ret.size() > 8){ //check for too many featured vehicles 
+            return null; //need a way to differentiate between 0 and too many
+        } else {
+            return ret;
+        }
+    }
+    
+    //get description
+    public String getDescription(int id) {
+        return dao.getVehicleDetails(id);
+    }
+    
+    //find count of vehicle
+    public int getVehicleCount(int id) {
+        return dao.getVehicleInventoryCount(id);
+    }
     
     
 }

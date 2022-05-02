@@ -158,8 +158,9 @@ public class VehicleDaoDB implements VehicleDao {
         int year = temp.getYear();
         String make = temp.getMake();
         String model = temp.getModel();
-        String COUNT_VEHICLE = "SELECT COUNT(make) FROM Vehicle WHERE year = " + year + " AND make = " + make + " AND model = " + model;
-        return jdbc.queryForObject(COUNT_VEHICLE, new Object[] {model}, Integer.class);
+        String COUNT_VEHICLE = "SELECT * FROM Vehicle WHERE year = " + year + " AND make = " + make + " AND model = " + model;
+        List<Vehicle> tempList = jdbc.query(COUNT_VEHICLE, new VehicleMapper());
+        return tempList.size();
     }
     
     public static final class VehicleMapper implements RowMapper<Vehicle> {
