@@ -8,6 +8,8 @@ package mthree.ihs.CarDealership.service;
  *
 
  * @author harle
+ * 
+*/
 
 public class UserService {
     
