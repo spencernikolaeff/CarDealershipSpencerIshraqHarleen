@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -38,29 +39,98 @@ public class VehicleDaoDB implements VehicleDao {
         }
     }
 
+    //get all vehicles
+    //
+    //currently gets all vehicles 
+    //need to add switch or overloading for different get all vehicle options
+    //one area could be getting all vehicles that are IN STOCK
     @Override
     public List<Vehicle> getAllVehicles() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        final String SELECT_ALL_VEHICLES = "SELECT * FROM VEHICLE";
+        List<Vehicle> vehicles = jdbc.query(SELECT_ALL_VEHICLES, new VehicleMapper());
+        return vehicles;
     }
 
+    //adding a vehicle
+    //doesn't include vehicleId since that's auto-increment
     @Override
+    @Transactional
     public Vehicle addVehicle(Vehicle vehicle) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        final String INSERT_VEHICLE = "INSERT INTO Vehicle(make,model,isUsed,body,vehicleYear,isManual,exteriorColor,interiorColor,mileage,vin,msrp,price,vehicleDescription,icon_url,inStock) "
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        jdbc.update(INSERT_VEHICLE,
+                vehicle.getMake(),
+                vehicle.getModel(),
+                vehicle.getIsUsed(),
+                vehicle.getBody(),
+                vehicle.getYear(),
+                vehicle.getIsManual(),
+                vehicle.getExteriorColor(),
+                vehicle.getInteriorColor(),
+                vehicle.getMileage(),
+                vehicle.getVin(),
+                vehicle.getMsrp(),
+                vehicle.getPrice(),
+                vehicle.getVehicleDescription(),
+                vehicle.getIconURL(),
+                vehicle.getInStock());
+        int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+        vehicle.setId(newId);
+        return vehicle;
     }
 
     @Override
+    @Transactional
     public void updateVehicle(Vehicle vehicle) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        final String UPDATE_VEHICLE = "UPDATE Vehicle SET make = ?,model = ?,isUsed = ?,body = ?,vehicleYear = ?,isManual = ?,exteriorColor = ?,interiorColor = ?,mileage = ?,vin = ?,msrp = ?,price = ?,vehicleDescription = ?,icon_url = ?,inStock = ? WHERE id = ?";
+        jdbc.update(UPDATE_VEHICLE,
+                vehicle.getMake(),
+                vehicle.getModel(),
+                vehicle.getIsUsed(),
+                vehicle.getBody(),
+                vehicle.getYear(),
+                vehicle.getIsManual(),
+                vehicle.getExteriorColor(),
+                vehicle.getInteriorColor(),
+                vehicle.getMileage(),
+                vehicle.getVin(),
+                vehicle.getMsrp(),
+                vehicle.getPrice(),
+                vehicle.getVehicleDescription(),
+                vehicle.getIconURL(),
+                vehicle.getInStock());
     }
 
+    //delete vehicle by specified id
     @Override
+    @Transactional
     public void deleteVehicleById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        final String DELETE_VEHICLE = "DELETE FROM Vehicle WHERE id = ?";
+        jdbc.update(DELETE_VEHICLE, id);
     }
 
+    //basic search vehicle 
+    //input is the make / model / year
+    //isUsed is whether we're selecting from used or new vehicles
+    //here we're not searching in a specified year or price range hense 'basic search'
+    //int ref is 1-3 with 1 being make, 2 being model, 3 being year
     @Override
     public Vehicle searchVehicle(String input, int ref, boolean isUsed) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String queryType = "SELECT * FROM VEHICLE ";
+        switch(ref) {
+            case 1:
+                queryType += "WHERE make = ";
+                break;
+            case 2:
+                queryType += "WHERE model = ";
+                break;
+            case 3:
+                queryType += "WHERE year = ";
+                break;
+        }
+        queryType += input + " AND isUsed = " + isUsed;
+        Vehicle vehicle = jdbc.queryForObject(queryType, new VehicleMapper());
+        return vehicle;
     }
 
     @Override
@@ -93,7 +163,7 @@ public class VehicleDaoDB implements VehicleDao {
         @Override
         public Vehicle mapRow(ResultSet rs, int index) throws SQLException {
             Vehicle vehicle = new Vehicle();
-            vehicle.setVehicleId(rs.getInt("vehicleId"));
+            vehicle.setId(rs.getInt("vehicleId"));
             vehicle.setMake(rs.getString("make"));
             vehicle.setModel(rs.getString("model"));
             vehicle.setIsUsed(rs.getBoolean("isUsed"));

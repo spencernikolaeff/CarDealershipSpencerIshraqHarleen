@@ -55,11 +55,11 @@ public class Vehicle {
         
     }
 
-    public int getVehicleId() {
+    public int getId() {
         return VehicleId;
     }
 
-    public void setVehicleId(int VehicleId) {
+    public void setId(int VehicleId) {
         this.VehicleId = VehicleId;
     }
 
@@ -79,7 +79,7 @@ public class Vehicle {
         this.model = model;
     }
 
-    public boolean isIsUsed() {
+    public boolean getIsUsed() {
         return isUsed;
     }
 
@@ -103,7 +103,7 @@ public class Vehicle {
         this.year = year;
     }
 
-    public boolean isIsManual() {
+    public boolean getIsManual() {
         return isManual;
     }
 
@@ -175,7 +175,7 @@ public class Vehicle {
         this.iconURL = iconURL;
     }
 
-    public boolean isInStock() {
+    public boolean getInStock() {
         return inStock;
     }
 
