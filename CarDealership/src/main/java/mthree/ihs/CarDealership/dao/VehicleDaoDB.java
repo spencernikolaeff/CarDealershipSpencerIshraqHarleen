@@ -117,42 +117,18 @@ public class VehicleDaoDB implements VehicleDao {
     //here we're not searching in a specified year or price range hense 'basic search'
     //int ref is 1-3 with 1 being make, 2 being model, 3 being year
     @Override
-    public Vehicle searchVehicle(String input, int ref, boolean isUsed) {
-        String queryType = "SELECT * FROM VEHICLE ";
-        switch(ref) {
-            case 1:
-                queryType += "WHERE make = ";
-                break;
-            case 2:
-                queryType += "WHERE model = ";
-                break;
-            case 3:
-                queryType += "WHERE year = ";
-                break;
-        }
-        queryType += input + " AND isUsed = " + isUsed;
+    public Vehicle searchVehicle(String input, boolean isUsed) {
+        String queryType = "SELECT * FROM VEHICLE WHERE make = " + input + " OR model = " + input + " OR year = " + input;
+        queryType += " AND isUsed = " + isUsed;
         Vehicle vehicle = jdbc.queryForObject(queryType, new VehicleMapper());
         return vehicle;
     }
 
     @Override
-    public Vehicle searchVehicle(String input, int ref, BigDecimal priceMin, BigDecimal priceMax, int yearMin, int yearMax, boolean isUsed) {
-        String queryType = "SELECT * FROM VEHICLE ";
-        switch(ref) {
-            case 1:
-                queryType += "WHERE (make = ";
-                break;
-            case 2:
-                queryType += "WHERE (model = ";
-                break;
-            case 3:
-                queryType += "WHERE (year = ";
-                break;
-        }
-        queryType += input + " AND isUsed = " + isUsed;
-        
-        queryType += " ) AND price BETWEEN " + priceMin + " AND " + priceMax + " AND vehicleYear BETWEEN " + yearMin + " AND " + yearMax;
-        
+    public Vehicle searchVehicle(String input, BigDecimal priceMin, BigDecimal priceMax, int yearMin, int yearMax, boolean isUsed) {
+        String queryType = "SELECT * FROM VEHICLE WHERE make = " + input + " OR model = " + input + " OR year = " + input;
+        queryType += " AND isUsed = " + isUsed;
+        queryType += " AND price BETWEEN " + priceMin + " AND " + priceMax + " AND vehicleYear BETWEEN " + yearMin + " AND " + yearMax;
         Vehicle vehicle = jdbc.queryForObject(queryType, new VehicleMapper());
         return vehicle;
     }
@@ -182,8 +158,9 @@ public class VehicleDaoDB implements VehicleDao {
         int year = temp.getYear();
         String make = temp.getMake();
         String model = temp.getModel();
-        String COUNT_VEHICLE = "SELECT COUNT(make) FROM Vehicle WHERE year = " + year + " AND make = " + make + " AND model = " + model;
-        return jdbc.queryForObject(COUNT_VEHICLE, new Object[] {model}, Integer.class);
+        String COUNT_VEHICLE = "SELECT * FROM Vehicle WHERE year = " + year + " AND make = " + make + " AND model = " + model;
+        List<Vehicle> tempList = jdbc.query(COUNT_VEHICLE, new VehicleMapper());
+        return tempList.size();
     }
     
     public static final class VehicleMapper implements RowMapper<Vehicle> {
