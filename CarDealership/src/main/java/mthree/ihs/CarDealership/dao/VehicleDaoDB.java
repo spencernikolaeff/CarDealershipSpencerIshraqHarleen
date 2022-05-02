@@ -135,7 +135,24 @@ public class VehicleDaoDB implements VehicleDao {
 
     @Override
     public Vehicle searchVehicle(String input, int ref, BigDecimal priceMin, BigDecimal priceMax, int yearMin, int yearMax, boolean isUsed) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String queryType = "SELECT * FROM VEHICLE ";
+        switch(ref) {
+            case 1:
+                queryType += "WHERE (make = ";
+                break;
+            case 2:
+                queryType += "WHERE (model = ";
+                break;
+            case 3:
+                queryType += "WHERE (year = ";
+                break;
+        }
+        queryType += input + " AND isUsed = " + isUsed;
+        
+        queryType += " ) AND price BETWEEN " + priceMin + " AND " + priceMax + " AND vehicleYear BETWEEN " + yearMin + " AND " + yearMax;
+        
+        Vehicle vehicle = jdbc.queryForObject(queryType, new VehicleMapper());
+        return vehicle;
     }
 
     @Override
@@ -145,17 +162,24 @@ public class VehicleDaoDB implements VehicleDao {
 
     @Override
     public String getVehicleDetails(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return getVehicleById(id).getVehicleDescription();
     }
 
     @Override
     public List<Vehicle> getVehicleInventory(boolean isUsed) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        final String SELECT_ALL_VEHICLES = "SELECT * FROM VEHICLE WHERE isUsed = " + isUsed + " AND inStock = 1";
+        List<Vehicle> vehicles = jdbc.query(SELECT_ALL_VEHICLES, new VehicleMapper());
+        return vehicles;
     }
 
     @Override
     public int getVehicleInventoryCount(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Vehicle temp = getVehicleById(id);
+        int year = temp.getYear();
+        String make = temp.getMake();
+        String model = temp.getModel();
+        String COUNT_VEHICLE = "SELECT COUNT(make) FROM Vehicle WHERE year = " + year + " AND make = " + make + " AND model = " + model;
+        return jdbc.queryForObject(COUNT_VEHICLE, new Object[] {model}, Integer.class);
     }
     
     public static final class VehicleMapper implements RowMapper<Vehicle> {
