@@ -50,9 +50,18 @@ public class Vehicle {
     private String vehicleDescription;
     private String iconURL;
     private boolean inStock;
+    private boolean isFeatured;
     
     public Vehicle() {
         
+    }
+
+    public boolean getIsFeatured() {
+        return isFeatured;
+    }
+
+    public void setIsFeatured(boolean isFeatured) {
+        this.isFeatured = isFeatured;
     }
 
     public int getId() {

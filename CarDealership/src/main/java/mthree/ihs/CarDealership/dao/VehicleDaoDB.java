@@ -73,7 +73,8 @@ public class VehicleDaoDB implements VehicleDao {
                 vehicle.getPrice(),
                 vehicle.getVehicleDescription(),
                 vehicle.getIconURL(),
-                vehicle.getInStock());
+                vehicle.getInStock(),
+                vehicle.getIsFeatured());
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         vehicle.setId(newId);
         return vehicle;
@@ -98,7 +99,8 @@ public class VehicleDaoDB implements VehicleDao {
                 vehicle.getPrice(),
                 vehicle.getVehicleDescription(),
                 vehicle.getIconURL(),
-                vehicle.getInStock());
+                vehicle.getInStock(),
+                vehicle.getIsFeatured());
     }
 
     //delete vehicle by specified id
@@ -157,7 +159,9 @@ public class VehicleDaoDB implements VehicleDao {
 
     @Override
     public List<Vehicle> findFeaturedVehicles() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        final String SELECT_ALL_FEATURED_VEHICLES = "SELECT * FROM VEHICLE WHERE isFeatured = 1";
+        List<Vehicle> vehicles = jdbc.query(SELECT_ALL_FEATURED_VEHICLES, new VehicleMapper());
+        return vehicles;
     }
 
     @Override
@@ -203,6 +207,7 @@ public class VehicleDaoDB implements VehicleDao {
             vehicle.setVehicleDescription(rs.getString("vehicleDescription"));
             vehicle.setIconURL(rs.getString("icon_url"));
             vehicle.setInStock(rs.getBoolean("inStock"));
+            vehicle.setIsFeatured(rs.getBoolean("isFeatured"));
             return vehicle;
         }
     }

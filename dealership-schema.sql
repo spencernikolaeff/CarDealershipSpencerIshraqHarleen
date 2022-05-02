@@ -20,7 +20,8 @@ CREATE TABLE Vehicle(
     price DECIMAL(9,2) NOT NULL,
     vehicleDescription VARCHAR(200) NOT NULL,
     icon_url VARCHAR(200),
-    inStock BOOL NOT NULL
+    inStock BOOL NOT NULL,
+    isFeatured BOOL NOT NULL
 );
 
 CREATE TABLE Contact (
