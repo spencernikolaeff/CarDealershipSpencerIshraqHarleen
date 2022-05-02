@@ -12,15 +12,21 @@ import java.time.LocalDate;
  * @author harle
  */
 public class SalesLog {
-    
+
+    private int salesLogId;
+
     private LocalDate dateSold;
     private BigDecimal priceSoldFor;
     private int customerId;
     private int salesId;
     private int vehicleId;  //Returning IDs from the database 
-        
+
+    public int getSalesLogId() {
+        return salesLogId;
+    }
+
     public SalesLog() {
-        
+
     }
 
     public LocalDate getDateSold() {
@@ -62,6 +68,9 @@ public class SalesLog {
     public void setVehicleId(int vehicleId) {
         this.vehicleId = vehicleId;
     }
-        
-    
+
+    public void setSalesLogId(int salesLogId) {
+        this.salesLogId = salesLogId;
+    }
+
 }

@@ -65,7 +65,7 @@ public class Special {
         return discountValue;
     }
 
-    public boolean isIsPercent() {
+    public boolean getIsPercent() {
         return isPercent;
     }
     

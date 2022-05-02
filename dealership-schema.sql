@@ -36,6 +36,7 @@ CREATE TABLE Contact (
 
 CREATE TABLE Special(
 	specialId INT NOT NULL,
+    specialTitle VARCHAR(50),
     specialDescription VARCHAR(200),
     discountValue DECIMAL(7,2) NOT NULL,
     isPercent BOOL NOT NULL,

@@ -53,12 +53,13 @@ public class ContactDaoDB implements ContactDao {
                 contact.getPhone(),
                 contact.getMessage(),
                 contact.getVehicleId());
-
+        
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         contact.setContactId(newId);
         return contact;
     }
 
+    
     @Override
     public void updateContact(Contact contact) {
         final String UPDATE_CONTACT = "UPDATE contact SET contactName = ?, email = ?, phoneNumber = ?, message = ? "
