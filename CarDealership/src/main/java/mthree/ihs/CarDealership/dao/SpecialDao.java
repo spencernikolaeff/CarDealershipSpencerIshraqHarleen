@@ -20,7 +20,7 @@ public interface SpecialDao {
     void updateSpecial(Special special);
     void deleteSpecial(int id);
     
-    //get vehicle id by special
-    int getVehicleIdBySpecialId(int id);
+    // get vehicle id by special
+    //int getVehicleIdBySpecialId(int id);
     
 }

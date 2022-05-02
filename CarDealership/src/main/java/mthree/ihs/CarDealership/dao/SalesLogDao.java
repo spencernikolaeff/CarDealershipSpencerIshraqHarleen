@@ -23,8 +23,8 @@ public interface SalesLogDao {
     List<SalesLog>  getAllSales();
     
     // List out Sales by Specific User and between two dates
-    List <SalesLog> getSalesLogByDate(UserSales salesPerson, LocalDate startDate, LocalDate endDate);
+    List <SalesLog> getSalesLogByDate(int salesPersonId, LocalDate startDate, LocalDate endDate);
     
     // add a Sales Log
-    void addSalesLog(SalesLog sale);
+    SalesLog addSalesLog(SalesLog sale);
 }
