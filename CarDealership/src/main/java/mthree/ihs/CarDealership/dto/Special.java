@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 
 /**
  *
- * @author khani
+ * @author Ishraq
+ * Description: The class used for the different specials available in the car dealership
  */
 public class Special {
     

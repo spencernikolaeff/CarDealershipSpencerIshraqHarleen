@@ -12,15 +12,19 @@ import mthree.ihs.CarDealership.dto.UserSales;
 
 /**
  *
- * @author khani
+ * @author Ishraq
  */
 public interface SalesLogDao {
     
-    List<SalesLog> getAllSalesLogByUser(UserSales salesPerson);
+    // list out the sales done by specific user
+    List<SalesLog> getAllSalesLogByUser(int salesPersonId);
     
+    // List out all sales
     List<SalesLog>  getAllSales();
     
+    // List out Sales by Specific User and between two dates
     List <SalesLog> getSalesLogByDate(UserSales salesPerson, LocalDate startDate, LocalDate endDate);
     
-    
+    // add a Sales Log
+    void addSalesLog(SalesLog sale);
 }

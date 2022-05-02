@@ -5,7 +5,7 @@ CREATE DATABASE CarDealership;
 USE CarDealership;
 
 CREATE TABLE Vehicle(
-	vehicleId INT NOT NULL,
+	vehicleId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     make VARCHAR(25) NOT NULL,
     model VARCHAR(10) NOT NULL,
     isUsed BOOL NOT NULL,
@@ -20,19 +20,17 @@ CREATE TABLE Vehicle(
     price DECIMAL(9,2) NOT NULL,
     vehicleDescription VARCHAR(200) NOT NULL,
     icon_url VARCHAR(200),
-    inStock BOOL NOT NULL,
-    PRIMARY KEY(vehicleId)
+    inStock BOOL NOT NULL
 );
 
 CREATE TABLE Contact (
-	contactId INT NOT NULL,
+	contactId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     contactName VARCHAR(50) NOT NULL,
     email VARCHAR(65),
     phoneNumber VARCHAR(12),
     message VARCHAR (300) NOT NULL,
     vehicleId INT NOT NULL,
-    FOREIGN KEY (vehicleId) REFERENCES Vehicle(vehicleId),
-    PRIMARY KEY(contactId)
+    FOREIGN KEY (vehicleId) REFERENCES Vehicle(vehicleId)
 );
 
 CREATE TABLE Special(
