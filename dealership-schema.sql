@@ -10,7 +10,7 @@ CREATE TABLE Vehicle(
     model VARCHAR(10) NOT NULL,
     isUsed BOOL NOT NULL,
     body VARCHAR(10) NOT NULL,
-    vehicleYear TINYINT(4) NOT NULL,
+    vehicleYear INT NOT NULL,
     isManual BOOL NOT NULL,
     exteriorColor VARCHAR(12) NOT NULL,
     interiorColor VARCHAR(12) NOT NULL,
