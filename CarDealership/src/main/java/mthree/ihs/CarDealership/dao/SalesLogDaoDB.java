@@ -29,7 +29,7 @@ public class SalesLogDaoDB implements SalesLogDao {
 
     // list out the sales done by specific user
     @Override
-    public List<SalesLog> getAllSalesLogByUser(int salesPersonId) {
+    public List<salesLog> getAllSalesLogByUser(int salesPersonId) {
         final String SELECT_ALL_SALESLOG_BY_USER = "SELECT * FROM salesLog"
                 + "WHERE salesId = " + salesPersonId;
         return jdbc.query(SELECT_ALL_SALESLOG_BY_USER, new SalesLogMapper());
@@ -37,14 +37,14 @@ public class SalesLogDaoDB implements SalesLogDao {
 
     // List out all sales
     @Override
-    public List<SalesLog> getAllSales() {
+    public List<salesLog> getAllSales() {
         final String SELECT_ALL_SALESLOG = "SELECT * FROM salesLog";
         return jdbc.query(SELECT_ALL_SALESLOG, new SalesLogMapper());
     }
 
     // List out Sales by Specific User and between two dates
     @Override
-    public List<SalesLog> getSalesLogByDate(int salesPersonId, LocalDate startDate, LocalDate endDate) {
+    public List<salesLog> getSalesLogByDate(int salesPersonId, LocalDate startDate, LocalDate endDate) {
         final String SELECT_ALL_SALESLOG_BY_DATES = "SELECT * FROM salesLog"
                 + " WHERE (salesId = " + salesPersonId + " AND dateSold >= "
                 + startDate + " AND datesold <= " + endDate;
@@ -54,7 +54,7 @@ public class SalesLogDaoDB implements SalesLogDao {
     // add a Sales Log
     @Override
     @Transactional
-    public SalesLog addSalesLog(SalesLog sale) {
+    public salesLog addSalesLog(salesLog sale) {
         final String INSERT_SALESLOG = "INSERT INTO salesLog(dateSold, priceSoldFor, customerId, salesId, vehicleId) "
                 + "VALUES(?,?,?,?,?)";
         jdbc.update(INSERT_SALESLOG,
@@ -70,18 +70,18 @@ public class SalesLogDaoDB implements SalesLogDao {
     }
     
     // Mapper forsalesLog
-    public static final class SalesLogMapper implements RowMapper<SalesLog> {
+    public static final class SalesLogMapper implements RowMapper<salesLog> {
 
         @Override
-        public SalesLog mapRow(ResultSet rs, int index) throws SQLException {
-            SalesLog salesLog = new SalesLog();
-            salesLog.setDateSold(rs.getDate("dateSold").toLocalDate());
-            salesLog.setPriceSoldFor(rs.getBigDecimal("priceSoldFor"));
-            salesLog.setCustomerId(rs.getInt("customerId"));
-            salesLog.setSalesId(rs.getInt("salesId"));
-            salesLog.setVehicleId(rs.getInt("vehicleId"));
+        public salesLog mapRow(ResultSet rs, int index) throws SQLException {
+            salesLog saleslog = new salesLog();
+            saleslog.setDateSold(rs.getDate("dateSold").toLocalDate());
+            saleslog.setPriceSoldFor(rs.getBigDecimal("priceSoldFor"));
+            saleslog.setCustomerId(rs.getInt("customerId"));
+            saleslog.setSalesId(rs.getInt("salesId"));
+            saleslog.setVehicleId(rs.getInt("vehicleId"));
 
-            return salesLog;
+            return saleslog;
         }
     }
 }
