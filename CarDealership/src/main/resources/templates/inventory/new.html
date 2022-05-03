@@ -42,50 +42,6 @@
             </ul>
         </div>
 
-            <!-- The Modal -->
-    <div class="modal" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Customer Sign In</h4>
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <form>
-                        <label class="sr-only" for="usrname">Username</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-
-
-                        <label class="sr-only" for="Password">Name</label>
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-key"></i></span>
-                            </div>
-                            <input id="Password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" >Sign In</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-            
-
     </nav>
 
 	<hr style="height:2px; width:100%; border-width:0; background-color:black">
@@ -142,7 +98,7 @@
 
         <div class="container">
             <hr>
-            <h2>Search Results</h2>
+            <h2 id="searchResults">Search Results</h2>
         </div>
 
         <div class="container">
@@ -153,11 +109,13 @@
 						<div class="col-sm-2">
 							<!-- Year Make Model -->
 							<div class="row-sm-4">
-								<h6>2016 Make Model</h6>
+								<a id="vehicle1year" th:value="${Vehicle.year}">Year</a>
+									<a id="vehicle1make">Make</a>
+									<a id="vehicle1model">Model</a>
 							</div>
 							<!-- Picture -->
 							<div class="row">
-								<img src="../../img/Honda_Civic.jpg" class="rounded mx-auto d-block" style="width: 160px" alt="Example Image">
+								<img src="../../img/Honda_Civic.jpg" id="vehicle1img" class="rounded mx-auto d-block" style="width: 160px" alt="No Image">
 							</div>
 						</div>
 
@@ -165,35 +123,35 @@
 						<div class="col">
 							<div class="row">
 								<div class="col">
-									<p class="card-text">Body Style:</p>
+									<p class="card-text" id="vehicle1body">Body Style:</p>
 								</div>
 								<div class="col">
-									<p class="card-text">Interior:</p>
+									<p class="card-text" id="vehicle1interior">Interior:</p>
 								</div>
 								<div class="col">
-									<p class="card-text">Sale Price:</p>
+									<p class="card-text" id="vehicle1price">Sale Price:</p>
 								</div>                       
 							</div>
 							<div class="row">
 								<div class="col">
-									<p class="card-text">Trans:</p>
+									<p class="card-text" id="vehicle1transmission">Trans:</p>
 								</div>
 								<div class="col">
-									<p class="card-text">Mileage</p>
+									<p class="card-text" id="vehicle1mileage">Mileage</p>
 								</div>
 								<div class="col">
-									<p class="card-text">MSRP:</p>
+									<p class="card-text" id="vehicle1msrp">MSRP:</p>
 								</div>  
 							</div>
 							<div class="row">
 								<div class="col">
-									<p class="card-text">Color:</p>
+									<p class="card-text" id="vehicle1exterior">Color:</p>
 								</div>
 								<div class="col">
-									<p class="card-text">VIN#</p>
+									<p class="card-text"  id="vehicle1vin">VIN#</p>
 								</div>
 								<div class="col">
-									<a href="#" class="btn btn-primary">Details</a>
+									<a href="#" class="btn btn-primary"  id="vehicle1description">Details</a>
 								</div>  
 							</div>       
 						</div>
