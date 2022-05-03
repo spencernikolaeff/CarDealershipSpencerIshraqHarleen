@@ -88,56 +88,56 @@
 
     </nav>
 
-        <div class="container">
-			<div class="row">
-				<h2>New Vehicles</h2>
-			</div>		
-        </div>
+	<hr style="height:2px; width:100%; border-width:0; background-color:black">
+	
+	<div class="container">
+		<div class="row-sm-6">
+			<h1>New Vehicles</h1>
+		</div>		
+	</div>
 
-	<body>
-        <div class="container">
-			<div class="row">
-				<h2>Quick Search</h2>
-			</div>	
-        </div>
 
-        <div class="container">
-            <div class="row">
-				<form class="row g-2 mt-2">
-                    <div class="col-md-4">
-                        <input type="input" class="form-control" id="keyword" placeholder="Enter make, model, or year">
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row g-2">
-                            <label class="col-sm-2 col-form-label" style="text-align: right">Price:</label>
-                            <div class="col-sm-5">
-                                <input type="text" inputmode="numeric" class="form-control text-center" name="minPrice" id="minPrice" placeholder="Min Price"/>
-                            </div>
-                            <div class="col-sm-5">
-                                <input type="text" inputmode="numeric" class="form-control text-center" name="maxPrice" id="maxPrice" placeholder="Max Price"/>
-                            </div>
-                        </div>
-                    </div>                    
-                    <div class="col-md-4">
-                        <div class="row g-2">
-                            <label class="col-sm-2 col-form-label" style="text-align: right">Year:</label>
-                            <div class="col-sm-5">
-                                <input type="text" class="datepicker form-control text-center" name="minYear" id="minYear" placeholder="Min Year"/>
-                            </div>
-                            <div class="col-sm-5">
-                                <input type="text" class="datepicker form-control text-center" name="maxYear" id="maxYear" placeholder="Max Year"/>
-                            </div>
-                        </div>
-                    </div>                    
-                </form>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <button type="button" class="btn btn-primary btn-lg">Search</button>
-                </div>               
-            </div>
-        </div>
-    </body>
+    <div class="container">
+		<div class="card">
+			<div class="card-body">
+				<div class="container">
+					<div class="row">
+						<h3>Quick Search</h3>
+					</div>	
+				</div>
+				<form class="row">
+					<div class="col">
+						<input type="input" class="form-control" id="keyword" placeholder="Enter make, model, or year">
+					</div>
+					<div class="col">
+						<div class="row">
+							<label class="col-sm-3 col-form-label" style="text-align: right">Price:</label>
+							<div class="col-sm-4">
+								<input type="text" inputmode="numeric" class="form-control text-center" name="minPrice" id="minPrice" placeholder="Min Price"/>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" inputmode="numeric" class="form-control text-center" name="maxPrice" id="maxPrice" placeholder="Max Price"/>
+							</div>
+						</div>
+					</div>                    
+					<div class="col">
+						<div class="row">
+							<label class="col-sm-3 col-form-label" style="text-align: right">Year:</label>
+							<div class="col-sm-4">
+								<input type="text" class="datepicker form-control text-center" name="minYear" id="minYear" placeholder="Min Year"/>
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="datepicker form-control text-center" name="maxYear" id="maxYear" placeholder="Max Year"/>
+							</div>
+						</div>
+					</div>
+						<div class="col-12 text-center mt-3">
+							<button id="search" class="btn btn-primary col-2">Search</button>
+						</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 
         <div class="container">
@@ -146,56 +146,60 @@
         </div>
 
         <div class="container">
-
             <div class="card">
-                <div class="card-header">
-                    Car Make & Model
-                </div>
                 <div class="card-body">
-				
-					<div class="container col">
-						<h6>2016 Make Model</h6>
-						<img src="/img/example-image.jpg" class="rounded mx-auto d-block" style="width: 240px" alt="Example Image">
+					<div class="row">
+						<!-- Left Column -->
+						<div class="col-sm-2">
+							<!-- Year Make Model -->
+							<div class="row-sm-4">
+								<h6>2016 Make Model</h6>
+							</div>
+							<!-- Picture -->
+							<div class="row">
+								<img src="../../img/Honda_Civic.jpg" class="rounded mx-auto d-block" style="width: 160px" alt="Example Image">
+							</div>
+						</div>
+
+						
+						<div class="col">
+							<div class="row">
+								<div class="col">
+									<p class="card-text">Body Style:</p>
+								</div>
+								<div class="col">
+									<p class="card-text">Interior:</p>
+								</div>
+								<div class="col">
+									<p class="card-text">Sale Price:</p>
+								</div>                       
+							</div>
+							<div class="row">
+								<div class="col">
+									<p class="card-text">Trans:</p>
+								</div>
+								<div class="col">
+									<p class="card-text">Mileage</p>
+								</div>
+								<div class="col">
+									<p class="card-text">MSRP:</p>
+								</div>  
+							</div>
+							<div class="row">
+								<div class="col">
+									<p class="card-text">Color:</p>
+								</div>
+								<div class="col">
+									<p class="card-text">VIN#</p>
+								</div>
+								<div class="col">
+									<a href="#" class="btn btn-primary">Details</a>
+								</div>  
+							</div>       
+						</div>
 					</div>	
-					
-					<div class="container col">
-						<div class="row">
-							<div class="col">
-								<p class="card-text">Body Style:</p>
-							</div>
-							<div class="col">
-								<p class="card-text">Interior:</p>
-							</div>
-							<div class="col">
-								<p class="card-text">Sale Price:</p>
-							</div>                       
-						</div>
-						<div class="row">
-							<div class="col">
-								<p class="card-text">Trans:</p>
-							</div>
-							<div class="col">
-								<p class="card-text">Mileage</p>
-							</div>
-							<div class="col">
-								<p class="card-text">MSRP:</p>
-							</div>  
-						</div>
-						<div class="row">
-							<div class="col">
-								<p class="card-text">Color:</p>
-							</div>
-							<div class="col">
-								<p class="card-text">VIN#</p>
-							</div>
-							<div class="col">
-								<a href="#" class="btn btn-primary">Details</a>
-							</div>  
-						</div>       
-					</div>			
                 </div>
             </div>
-            
         </div>
 
 
