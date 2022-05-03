@@ -26,12 +26,12 @@ public class VehicleController {
     
     //trying out post with just vehicle year mayeb?
     
-    @GetMapping("/vehicle/new")
-    public String searchNewVehicles(Model model) {
-        Vehicle vehicle = service.getVehicleById(1);
-        String year = String.valueOf(vehicle.getYear());
-        model.addAttribute("vehicle1year", year);
-        return "test";
-    }
+//    @GetMapping("/vehicle/new")
+//    public String searchNewVehicles(Model model) {
+//        Vehicle vehicle = service.getVehicleById(1);
+//        String year = String.valueOf(vehicle.getYear());
+//        model.addAttribute("vehicle1year", year);
+//        return "test";
+//    }
 
 }
