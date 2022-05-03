@@ -14,20 +14,29 @@
     
     <body>
         <nav class = "navbar navbar-inverse">
+            <!-- I think the basic navbar options don't need a Thymeleaf connection
+            however, we do have options that will vary depending on user account.
+            -->
             <form class ="form-inline" action="#" th:action="@{/home}" method="GET">
-                <button class="btn" type="submit">Home</button>
+                <button class="btn" type="buttom">Home</button>
             </form>
             <form class ="form-inline" action="#" th:action="@{/inventory/new}" method="GET">
-                <button class="btn" type="submit">New Inventory</button>
+                <button class="btn" type="button">New Inventory</button>
             </form>
             <form class ="form-inline" action="#" th:action="@{/inventory/used}" method="GET">
-                <button class="btn" type="submit">Used Inventory</button>
+                <button class="btn" type="button">Used Inventory</button>
             </form> 
             <form class ="form-inline" action="#" th:action="@{/specials}" method="GET">
-                <button class="btn" type="submit">Specials</button>
+                <button class="btn" type="button">Specials</button>
             </form>
             <form class ="form-inline" action="#" th:action="@{/contact}" method="GET">
-                <button class="btn" type="submit">Contact</button>
+                <button class="btn" type="button">Contact</button>
+            </form>
+            <form class ="form-inline" action="#" th:action="@{/sales}" method="GET">
+                <button class="btn" type="button"></button>
+            </form>
+            <form class ="form-inline" action="#" th:action="@{/admin}" method="GET">
+                <button class="btn" type="button"></button>
             </form>
         </nav>
         
@@ -53,7 +62,7 @@
                     <div class="col-3 mb-3">
                         <div class="card" style="width: 14rem;">
                             <div class="card-body">
-								<img src="/img/example-image.jpg" class="rounded mx-auto d-block" style="width: 240px" alt="Example Image">
+								<img src="../../img/Honda_Civic.jpg" class="rounded mx-auto d-block" style="width: 240px" alt="Example Image">
                                 <h5 class="card-title">2017 Make Model</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">$12,000</h6>
                             </div>
@@ -62,7 +71,7 @@
                     <div class="col-3 mb-3">
                         <div class="card" style="width: 14rem;">
                             <div class="card-body">
-								<img src="/img/example-image.jpg" class="rounded mx-auto d-block" style="width: 240px" alt="Example Image">
+								<img src="../../img/nissan-altima.jpg" class="rounded mx-auto d-block" style="width: 240px" alt="Example Image">
                                 <h5 class="card-title">2017 Make Model</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">$12,000</h6>
                             </div>
