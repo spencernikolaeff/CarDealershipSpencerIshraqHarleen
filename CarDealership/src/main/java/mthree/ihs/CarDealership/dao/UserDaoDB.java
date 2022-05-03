@@ -55,6 +55,8 @@ public class UserDaoDB implements UserDao {
                 user.getLastName(),
                 user.getEmail(),
                 user.getPassword());
+        int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+        user.setUserId(newId);
 
         return user;
     }
@@ -77,7 +79,8 @@ public class UserDaoDB implements UserDao {
                 user.getFirstName(),
                 user.getLastName(),
                 user.getEmail(),
-                user.getPassword());
+                user.getPassword(),
+                user.getUserId());
 
         jdbc.update(EDIT_USER_ISADMIN, user.isIsAdmin());
 
