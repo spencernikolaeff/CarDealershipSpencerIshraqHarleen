@@ -11,7 +11,7 @@ import java.time.LocalDate;
  *
  * @author harle
  */
-public class SalesLog {
+public class salesLog {
 
     private int salesLogId;
 
@@ -25,7 +25,7 @@ public class SalesLog {
         return salesLogId;
     }
 
-    public SalesLog() {
+    public salesLog() {
 
     }
 

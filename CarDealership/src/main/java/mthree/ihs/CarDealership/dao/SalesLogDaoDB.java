@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
-import mthree.ihs.CarDealership.dto.SalesLog;
+import mthree.ihs.CarDealership.dto.salesLog;
 import mthree.ihs.CarDealership.dto.UserSales;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

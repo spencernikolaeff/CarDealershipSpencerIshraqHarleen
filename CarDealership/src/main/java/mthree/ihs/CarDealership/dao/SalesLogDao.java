@@ -7,7 +7,7 @@ package mthree.ihs.CarDealership.dao;
 
 import java.time.LocalDate;
 import java.util.List;
-import mthree.ihs.CarDealership.dto.SalesLog;
+import mthree.ihs.CarDealership.dto.salesLog;
 import mthree.ihs.CarDealership.dto.UserSales;
 
 /**
@@ -17,14 +17,14 @@ import mthree.ihs.CarDealership.dto.UserSales;
 public interface SalesLogDao {
     
     // list out the sales done by specific user
-    List<SalesLog> getAllSalesLogByUser(int salesPersonId);
+    List<salesLog> getAllSalesLogByUser(int salesPersonId);
     
     // List out all sales
-    List<SalesLog>  getAllSales();
+    List<salesLog>  getAllSales();
     
     // List out Sales by Specific User and between two dates
-    List <SalesLog> getSalesLogByDate(int salesPersonId, LocalDate startDate, LocalDate endDate);
+    List <salesLog> getSalesLogByDate(int salesPersonId, LocalDate startDate, LocalDate endDate);
     
     // add a Sales Log
-    SalesLog addSalesLog(SalesLog sale);
+    salesLog addSalesLog(salesLog sale);
 }
