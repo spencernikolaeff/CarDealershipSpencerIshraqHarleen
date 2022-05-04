@@ -19,9 +19,9 @@ public class SpecialController {
     @Autowired
     private SpecialService service;
     
-    @GetMapping("/special")
+    @GetMapping("/home/specials.html")
     public String viewSpecials(Model model) {
         model.addAttribute("listSpecials", service.listAllSpecials());
-        return "index";
+        return "/home/specials.html";
     }
 }

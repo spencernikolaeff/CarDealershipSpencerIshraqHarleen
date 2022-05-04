@@ -31,7 +31,7 @@ public class VehicleDaoDB implements VehicleDao {
     @Override
     public Vehicle getVehicleById(int id) {
         try {
-            final String SELECT_VEHICLE_BY_ID = "SELECT * FROM Vehicle WHERE vehicleId = ?";
+            final String SELECT_VEHICLE_BY_ID = "SELECT * FROM Vehicle WHERE vehicleId = 1";
             Vehicle vehicle = jdbc.queryForObject(SELECT_VEHICLE_BY_ID, new VehicleMapper(), id);
             return vehicle;
         } catch (DataAccessException ex) {
