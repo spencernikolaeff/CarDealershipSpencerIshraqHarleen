@@ -9,11 +9,14 @@ import mthree.ihs.CarDealership.dao.ContactDao;
 import mthree.ihs.CarDealership.dao.VehicleDao;
 import mthree.ihs.CarDealership.dto.Contact;
 import mthree.ihs.CarDealership.dto.Vehicle;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author SPENCER
  */
+
+@Component
 public class ContactService {
     private final ContactDao dao;
     private final VehicleDao vdao;
