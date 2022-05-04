@@ -23,7 +23,51 @@ public class VehicleController {
     @Autowired
     VehicleService service;
     
-
+    String year = "1994";
+    String make = "A4";
+    String vmodel = "Audi";
+    
+    @GetMapping("/#")
+    public String loadFeatured(Model model) {
+        model.addAttribute("featured1year", year);
+        model.addAttribute("featured1model", vmodel);
+        model.addAttribute("featured1make", make);
+        return "/#";
+    }
+    
+    @GetMapping("inventory/new.html")
+    public String loadNewInventory(Model model) {
+        //model.addAttribute("featured1iconurl", temp.getIconURL());
+        model.addAttribute("year", year);
+        model.addAttribute("model", model);
+        model.addAttribute("make", make);
+        //model.addAttribute("featured1price", temp.getPrice());
+        return "inventory/new.html";
+    }
+    
+    @GetMapping("inventory/used.html")
+    public String loadUsedInventory(Model model) {
+        //model.addAttribute("featured1iconurl", temp.getIconURL());
+        model.addAttribute("year", year);
+        model.addAttribute("model", model);
+        model.addAttribute("make", make);
+        //model.addAttribute("featured1price", temp.getPrice());
+        return "inventory/used.html";
+    }
+//    @GetMapping("index.html")
+//    public String putVehicleInFeatured(Model model) {
+////        Vehicle temp = service.getVehicleById(1);
+//        Vehicle temp = new Vehicle();
+//        temp.setYear(1994);
+//        temp.setModel("Audi");
+//        temp.setMake("A4");
+//        //model.addAttribute("featured1iconurl", temp.getIconURL());
+//        model.addAttribute("featured1year", temp.getYear());
+//        model.addAttribute("featured1model", temp.getModel());
+//        model.addAttribute("featured1make", temp.getMake());
+//        //model.addAttribute("featured1price", temp.getPrice());
+//        return "index.html";
+//    }
     
     //trying out post with just vehicle year mayeb?
     

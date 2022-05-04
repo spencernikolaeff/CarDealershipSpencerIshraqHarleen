@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml%22%3E">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -7,8 +7,8 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="../templates/navbar.css">
-        <link rel="stylesheet" href="../templates/index.css">
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="index.css">
         <title>Dealership</title>
     </head>
     
@@ -23,19 +23,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto topnav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/home/index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../templates/inventory/new.html">New Inventory</a>
+                    <a class="nav-link" href="inventory/new.html">New Inventory</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../templates/inventory/used.html">Used Inventory</a>
+                    <a class="nav-link" href="inventory/used.html">Used Inventory</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../templates/home/specials.html">Specials</a>
+                    <a class="nav-link" href="home/specials.html">Specials</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../templates/home/contact.html">
+                    <a class="nav-link" href="home/contact.html">
                         Contact
                     </a>
                 </li>
@@ -117,9 +117,13 @@
                 <div class="row">
                     <div class="col-3 mb-3">
                         <div class="card" style="width: 14rem;">
-                            <div class="card-body">
-								<img src="../../img/Honda_Civic.jpg" class="rounded mx-auto d-block" style="width: 180px" alt="No Image">
-                                <h5 class="card-title">2017 Make Model</h5>
+                            <div class="card-body" id="featured1">
+								<img src="/img/Honda_Civic.jpg" class="rounded mx-auto d-block" style="width: 180px" alt="No Image">
+                                                                <p><span th:text="${featured1year}"></span></p>
+                                                                <p><span th:text="${featured1make}"></span></p>
+                                                                <p><span th:text="${featured1model}"></span></p>
+                                                                <!--<p><span th:text="${featured1price}"></span></p>-->
+                                <h5 class="card-title"><span th:text="${featured1year}"></span></h5>
                                 <h6 class="card-subtitle mb-2 text-muted">$12,000</h6>
                             </div>
                         </div>
