@@ -67,17 +67,17 @@ public class VehicleController {
     }
     
     @PostMapping("searchForm")
-    public String searchNewVehicles(HttpServletRequest request) {
-        String[] inputs = {"",""};
-        inputs[0] = request.getParameter("keyword");
-        inputs[1] = "0";
-        Vehicle test = service.searchVehicle(inputs);
-        body = test.getBody();
-        make = test.getMake();
-        vmodel = test.getModel();
-        interior = test.getInteriorColor();
-        exterior = test.getExteriorColor();
-        return "redirect:/inventory/new.html";
+    public String searchForm(HttpServletRequest request) {
+//        String[] inputs = {"",""};
+//        inputs[0] = request.getParameter("keyword");
+//        inputs[1] = "0";
+//        Vehicle test = service.searchVehicle(inputs);
+//        body = test.getBody();
+//        make = test.getMake();
+//        vmodel = test.getModel();
+//        interior = test.getInteriorColor();
+//        exterior = test.getExteriorColor();
+        return "redirect:inventory/new.html";
     }
     
     
