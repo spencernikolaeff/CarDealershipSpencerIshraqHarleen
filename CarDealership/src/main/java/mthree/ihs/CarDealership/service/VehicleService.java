@@ -9,6 +9,7 @@ import java.util.List;
 import mthree.ihs.CarDealership.dao.VehicleDao;
 import mthree.ihs.CarDealership.dto.Vehicle;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  *

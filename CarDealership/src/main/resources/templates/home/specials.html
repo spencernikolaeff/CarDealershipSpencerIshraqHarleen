@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/xhtml%22%3E">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -57,9 +57,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="special : ${listSpecials}">
+                    <tr th:each="Special : ${listSpecials}">
                         <td th:text="${Special.title}"></td>
                         <td th:text="${Special.description}"></td>
+                <a href="#" th:href="@{/listSpecials}">view specials </a>
                     </tr>
                 </tbody>
             </table>
